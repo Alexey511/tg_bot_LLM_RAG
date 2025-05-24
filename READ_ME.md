@@ -1,7 +1,8 @@
 # Telegram RAG Bot с админ-ноутбуком
 Проект по созданию Telegram-бота с Retrieval-Augmented Generation (RAG) для ответа на запросы о компании (число сотрудников, цели, название) и Jupyter-ноутбука для управления базой знаний.
-Цель
-Обеспечить семантический поиск по базе знаний компании, обрабатывая разнообразные формулировки запросов на русском языке, и предоставить удобный интерфейс для администрирования данных.
+
+Цель: Обеспечить семантический поиск по базе знаний компании, обрабатывая разнообразные формулировки запросов на русском языке, и предоставить удобный интерфейс для администрирования данных.
+
 Технологии: NLP (RAG, эмбеддинги, переформулировка), векторные базы данных, Telegram API, Pandas, администрирование данных.
 
 ## Функционал:
@@ -25,21 +26,21 @@ database_scripts.ipynb: Админ-ноутбук для управления б
 
 ## Применяемые библиотеки
 
-numpy
-pandas
-sentence-transformers
-chromadb
-python-telegram-bot
-openai (для локального Llama 3 через Ollama)
-python-dotenv
-pyarrow
-стандартные библиотеки Python
+- numpy
+- pandas
+- sentence-transformers
+- chromadb
+- python-telegram-bot
+- openai (для локального Llama 3 через Ollama)
+- python-dotenv
+- pyarrow
+- стандартные библиотеки Python
 
 ## Установка и запуск
 
-Клонируйте репозиторий: git clone <repo-url>
-Установите нужные библиотеки
-Настройте переменные окружения: TELEGRAM_TOKEN, OPENAI_API_KEY (фиктивный для Ollama).
-Запустите Ollama: ollama run llama3
-Запустите бот: python telegram_bot.py
-Откройте админ-ноутбук: jupyter notebook admin_notebook.ipynb
+- Клонируйте репозиторий: git clone <repo-url>
+- Установите нужные библиотеки
+- Настройте переменные окружения: TELEGRAM_TOKEN, OPENAI_API_KEY (фиктивный для Ollama).
+- Запустите Ollama: ollama run llama3
+- Запустите бот: python telegram_bot.py
+- Откройте админ-ноутбук: jupyter notebook admin_notebook.ipynb
