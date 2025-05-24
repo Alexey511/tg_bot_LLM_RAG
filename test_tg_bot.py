@@ -51,7 +51,7 @@ database = Client(settings=Settings(
 collection = database.get_or_create_collection(
     name="docs",
     embedding_function=embedding_func,
-    metadata={"hnsw:space": "cosine"}  # Explicitly set cosine distance
+    metadata={"hnsw:space": "cosine"}  # Явно указываем тип эмбеддинга
 )
 
 # --- Настройка локального подключения к Ollama ---
@@ -233,7 +233,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(response[:4000])
         return
 
-    # Existing search logic
+    # Dynamic search logic
     scored_docs = sorted(
         [(1 - dist, doc) for doc, dist in zip(search_results["documents"][0], search_results["distances"][0])],
         key=lambda x: x[0], 
