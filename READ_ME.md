@@ -24,8 +24,9 @@
 
 ## Структура
 
-- telegram_bot.py: Telegram-бот с RAG (переформулировка через Llama 3, поиск в ChromaDB).
+- test_tg_bot.py: Telegram-бот с RAG (переформулировка через Llama 3, поиск в ChromaDB).
 - database_scripts.ipynb: Админ-ноутбук для управления базой (поиск, добавление, удаление, статистика, резервное копирование).
+- start_bot.bat: скрипт для запуска бота
 - ./db: Папка с базой ChromaDB (не выгружена).
 - ./reserve_copies: Папка для резервных копий в формате Parquet (не выгружена).
 
