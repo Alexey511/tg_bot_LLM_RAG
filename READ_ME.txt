@@ -1,41 +1,51 @@
- A Telegram bot that uses Retrieval-Augmented Generation (RAG) to search a knowledge base of user-submitted texts, leveraging embeddings and a local Llama model for semantic search and response generation.
- 
- ## Features
- - Save text to a knowledge base with `/save_on`.
- - Search for relevant documents with `/search <query>`.
- - Uses `paraphrase-multilingual-mpnet-base-v2` for embeddings and ChromaDB for vector search.
- - Query rephrasing with Llama for improved paraphrase handling.
- 
- ## Technologies
- - Python 3.9+
- - Sentence Transformers (`mpnet-base-v2`)
- - ChromaDB
- - Llama (via Ollama)
- - Telegram Bot API
- 
- ## Setup
- 1. Clone the repository: `git clone <repo-url>`
- 2. Install dependencies: `pip install -r requirements.txt`
- 3. Set up `.env` with `TELEGRAM_TOKEN` and `OPENAI_API_KEY` (dummy for Ollama).
- 4. Run Llama server: `ollama run llama3`
- 5. Start the bot: `python telegram_bot.py`
- 
- ## Usage
- - `/save_on`: Enable save mode.
- - Send text to save (e.g., “В нашей компании работает 35 сотрудников”).
- - `/save_off`: Disable save mode.
- - `/search Сколько сотрудников в вашей компании?`: Search the knowledge base.
- 
- ## Challenges and Solutions
- - **Issue**: Large negative similarity scores.
- - **Solution**: Normalized embeddings and reset ChromaDB.
- - **Issue**: Low similarity for paraphrased queries.
- - **Solution**: Added query rephrasing with Llama and switched to `mpnet-base-v2`.
- 
- ## Future Improvements
- - Fine-tune embedding model for Russian paraphrases.
- - Add evaluation metrics (e.g., precision@1).
- - Optimize for scalability with batch embedding.
- 
- ## Demo
- [Insert screenshot or link to video]
+Telegram RAG Bot с админ-ноутбуком
+Проект по созданию Telegram-бота с Retrieval-Augmented Generation (RAG) для ответа на запросы о компании (число сотрудников, цели, название) и Jupyter-ноутбука для управления базой знаний.
+Цель
+Обеспечить семантический поиск по базе знаний компании, обрабатывая разнообразные формулировки запросов на русском языке, и предоставить удобный интерфейс для администрирования данных.
+Результаты
+
+Метрики: Косинусная схожесть для топ-5 документов, вывод в виде DataFrame (см. admin_notebook.ipynb).
+Функционал:
+Бот: Мультитурновые диалоги, уверенность ответа, сохранение/поиск/удаление документов.
+Ноутбук: CRUD-операции, статистика, резервное копирование/восстановление.
+
+
+Навыки: NLP (RAG, эмбеддинги, переформулировка), векторные базы данных, Telegram API, Pandas, администрирование данных.
+
+Структура
+
+telegram_bot.py: Telegram-бот с RAG (переформулировка через Llama 3, поиск в ChromaDB).
+admin_notebook.ipynb: Админ-ноутбук для управления базой (поиск, добавление, удаление, статистика, резервное копирование).
+./db: Папка с базой ChromaDB (не выгружена).
+./reserve_copies: Папка для резервных копий в формате Parquet (не выгружена).
+
+Применяемые библиотеки
+
+numpy
+pandas
+sentence-transformers
+chromadb
+python-telegram-bot
+openai (для локального Llama 3 через Ollama)
+python-dotenv
+matplotlib (опционально для визуализации)
+pyarrow (для Parquet)
+стандартные библиотеки Python
+
+Датасет
+База знаний создается динамически через Telegram-бот (команда /save_on). Пример данных:
+
+«В нашей компании работает 35 сотрудников...»
+«Цель нашей компании — двигать прогресс вперед...»
+«Наша компания называется ‘Вперед’...»
+
+Для тестирования можно добавить документы через admin_notebook.ipynb (функция add_document).
+Установка и запуск
+
+Клонируйте репозиторий: git clone <repo-url>
+Установите зависимости: pip install -r requirements.txt
+Настройте переменные окружения: TELEGRAM_TOKEN, OPENAI_API_KEY (фиктивный для Ollama).
+Запустите Ollama: ollama run llama3
+Запустите бот: python telegram_bot.py
+Откройте админ-ноутбук: jupyter notebook admin_notebook.ipynb
+
