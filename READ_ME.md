@@ -18,7 +18,8 @@
 
 «Наша компания называется BitAvantgard»
 
-Данные также можно добавить через admin_notebook.ipynb (функция add_document).
+![image](https://github.com/user-attachments/assets/dc5918cf-17d6-4dc1-8694-31eb6089cecd)
+
 
 ## Структура
 
