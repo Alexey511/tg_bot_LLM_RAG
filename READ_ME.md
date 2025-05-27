@@ -18,7 +18,11 @@
 
 «Наша компания называется BitAvantgard»
 
+Примеры ответов бота:
+
 ![image](https://github.com/user-attachments/assets/dc5918cf-17d6-4dc1-8694-31eb6089cecd)
+
+![image](https://github.com/user-attachments/assets/10c20e73-63af-4d5a-b461-af6f40f5ae55)
 
 
 ## Структура
